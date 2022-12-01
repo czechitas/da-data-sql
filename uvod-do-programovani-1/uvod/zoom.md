@@ -1,0 +1,3 @@
+## Zoom
+
+::exc[cviceni>zoom]

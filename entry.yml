@@ -1,0 +1,6 @@
+title: Data
+lead: Kurzy JavaScriptu.
+image: intro-image.svg
+chapters:
+  - uvod-do-programovani-1
+  - js-1

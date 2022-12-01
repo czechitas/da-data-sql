@@ -1,0 +1,15 @@
+title: JavaScript 1
+lead: Naučíte se základy programování v jazyce JavaScript, který vám umožní udělat vaše stránky interaktivní.
+lessons:
+  - uvod-do-js
+  - struktura-adresaru
+  - vstup-vystup-objekty
+  - retezce-podminky
+  - dom-innerhtml
+  - knihovny-vlastni-funkce
+  - funkce-obory
+  - hof-udalosti
+  - udalosti-formulare
+  - chyby-pole
+  - cykly
+  - filmbox
