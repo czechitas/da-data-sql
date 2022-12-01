@@ -1,6 +1,6 @@
-# Javascript kurzy [![quality assurance](https://github.com/Czechitas-podklady-WEB/data-vyuka/actions/workflows/quality-assurance.yml/badge.svg)](https://github.com/Czechitas-podklady-WEB/data-vyuka/actions)
+# Datové kurzy [![quality assurance](https://github.com/Czechitas-podklady-WEB/data-vyuka/actions/workflows/quality-assurance.yml/badge.svg)](https://github.com/Czechitas-podklady-WEB/data-vyuka/actions)
 
-Studijní materiály pro DA Web na kodim.cz
+Studijní materiály pro data na kodim.cz
 
 ## Formátování
 
