@@ -1,0 +1,5 @@
+## Databáze
+
+Komunisti tomu říkali SŘBD a doteď se tahle zkratka vyskytuje v různých sylabech, viz obrázek ze skript Masarykovy Univerzity. Jak sis před chvílí představovala tu tabulku, tak ta někde musí být uložená. K tomu se líp než excel nebo textový soubor hodí databáze.
+
+Databáze je systém, který nám uživatelům umožňuje s daty pracovat. Aby toho nebylo málo, vyskytuje se databáze na nějakém serveru, ale o tom později. Teď si představ, že tu tabulku nemáš jen jednu, ale je jich asi 3271. Každou si pojmenuješ a to by mohlo stačit, jasně. Ale až začnou tabulky zase přibývat, dřív nebo později je budeš chtít naházet/roztřídit do nějakých adresářů, složek, folderů. Těm se v databázích říká schémata a plní stejnou funkci jako adresáře na disku, umožňují nám objekty (nemusíme v databázi mít jen tabulky) uspořádat a hromadně omezit kdo má právo co vidět, měnit apod. I tabulky, které nenaházíme do schémat ve schématu nakonec skončí, říká se mu defaultní nebo výchozí a v různých databázích se různě jmenují.

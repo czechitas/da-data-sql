@@ -1,6 +1,7 @@
 title: Data
-lead: Kurzy JavaScriptu.
+lead: Datové kurzy.
 image: intro-image.svg
 chapters:
+  - sql
   - uvod-do-programovani-1
   - js-1

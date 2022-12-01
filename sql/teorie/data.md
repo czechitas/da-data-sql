@@ -1,0 +1,3 @@
+## Co to jsou data?
+
+Představ si tabulku, libovolnou. Má řádky a sloupečky? Paráda. Jsou v prvním řádku názvy těch sloupečků? Super. Právě si představuješ asi nejjednodušší formu dat. Data jsou teď všude - od instagramu, přes chytrá města až po místy o trochu méně chytrou státní správu. A i úplně pitomé fotky v mobilu jsou vlastně uložené v databázi, nebo hned v několika databázích zároveň. Skoro celý internet je taky uložený v databázi, protože jednou z výhod databází je, že se v nich s daty pracuje mnohem snáz, než kdekoliv jinde, jako například na disku, v excelu, google sheetu, xml a tak vůbec..
