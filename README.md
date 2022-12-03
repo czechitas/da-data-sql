@@ -18,3 +18,11 @@ Změny se nasadí automaticky po pushnutí do větve `deploy` například zadán
 ```sh
 git push origin HEAD:deploy
 ```
+
+## Lokální běh pro vývoj
+
+Spuštěním příkazu:
+
+```sh
+docker-compose up
+```
