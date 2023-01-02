@@ -67,7 +67,7 @@
   ```sql
   WHERE iyear >= 2000
   ```
-- Náš první "kompletní" dotaz, vybere tři sloupce z tabulky teror
+- Náš první "kompletní" dotaz, vybere tři sloupce a všechny řádky z tabulky teror
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR;
@@ -82,7 +82,7 @@
   SELECT eventid ID_UDALOSTI, iyear ROK, country_txt ZEME
   FROM TEROR;
   ```
-- V SQL je úplně jedno, kde máme mezery a entry. Toho se dá využít k formátování kódu
+- V SQL je úplně jedno, kde máme mezery a konce řádek. Toho se dá využít k formátování kódu
   ```sql
   SELECT
          eventid     AS ID_UDALOSTI
@@ -94,8 +94,8 @@
   ```sql
   SELECT
          eventid     AS ID_UDALOSTI -- prejmenovani sloupecku pro ucely reportu
-      ,  iyear       AS ROK -- prejmenovani sloupecku pro ucely reportu
-      ,  country_txt AS ZEME -- prejmenovani sloupecku pro ucely reportu
+      ,  iyear       AS ROK         -- prejmenovani sloupecku pro ucely reportu
+      ,  country_txt AS ZEME        -- prejmenovani sloupecku pro ucely reportu
   FROM TEROR;
   /*
   Z tabulky bereme vsechny radky a tri sloupecky:
