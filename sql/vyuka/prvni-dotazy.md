@@ -1,9 +1,10 @@
 ## Lekce 1
 ## Data, databáze, Snowflake, tabulky, dotazy
+
 - Co je to SQL a jak se používá k práci s databázemi?
 - Připojení k databázi Snowflake a spouštění dotazů
-    - Nastavení účtu Snowflake a přístup k webovému rozhraní
-    - Spouštění dotazů a zobrazování výsledků ve webovém rozhraní
+  - Nastavení účtu Snowflake a přístup k webovému rozhraní
+  - Spouštění dotazů a zobrazování výsledků ve webovém rozhraní
 - Představení databáze COURSES ve Snowflake a její struktury
     - Schémata, role
     - Global Terrorism Database a její účel
@@ -11,53 +12,57 @@
 ## Základní syntaxe příkazu `SELECT`
 ### `SELECT ... FROM ... WHERE ... ORDER BY ... LIMIT ...;`
 - Získávání dat z jedné tabulky: SELECT, FROM, WHERE
-- Výběr konkrétních sloupců: seznam názvů sloupců, zástupný znak (*), exclude
+- Výběr konkrétních sloupců: seznam názvů sloupců, zástupný znak (\*), exclude
 - Třídění výsledků: ORDER BY, ASC, DESC
 - Omezení výsledků: LIMIT
 - Filtrování řádků pomocí klauzule WHERE
-    - Porovnávací operátory: =, >, >=, <, <=, <>, BETWEEN, IN, LIKE, IS NULL
-    - Logické operátory: AND, OR, NOT
+  - Porovnávací operátory: =, >, >=, <, <=, <>, BETWEEN, IN, LIKE, IS NULL
+  - Logické operátory: AND, OR, NOT
 
 ## Jdeme na to!
+
 ### Než začneme
+
 - Nejjednodušší SQL kód, prázdný příkaz zakončený středníkem
-    ```sql
-    ;
-    ```
+  ```sql
+  ;
+  ```
 - Nejjednodušší SQL kód, který něco vrátí
-    ```sql
-    SELECT 1;
-    ```
+  ```sql
+  SELECT 1;
+  ```
+
 ### Získávání dat z jedné tabulky: `SELECT`, `FROM`, `WHERE`
+
 - Nejjednodušší kód, který pracuje s tabulkou
     ```sql
     SELECT *
     FROM TEROR;
     ```
 - Použití příkazu `SELECT` k výběru sloupců, které chcete zobrazit ve výsledcích
-    ```sql
-    SELECT eventid, iyear, country_txt
-    ```
+  ```sql
+  SELECT eventid, iyear, country_txt
+  ```
 - Citlivost na velká malá písmena, používání dvojitých (!) uvozovek
-    ```sql
-    SELECT "eventid", "IYEAR", country_txt
-    ```
-- Můžete také vybrat všechny sloupce pomocí zástupného znaku *
-    ```sql
-    SELECT *
-    ```
+  ```sql
+  SELECT "eventid", "IYEAR", country_txt
+  ```
+- Můžete také vybrat všechny sloupce pomocí zástupného znaku \*
+  ```sql
+  SELECT *
+  ```
 - Pokud chceme skoro všechny sloupečky, můžeme se nechtěných zbavit klauzulí exclude (snowflake, bigquery, teradata ...)
-    ```sql
-    SELECT * EXCLUDE (eventid, eventdatde)
-    ```
+  ```sql
+  SELECT * EXCLUDE (eventid, eventdatde)
+  ```
 - Použití klauzule `FROM` k určení tabulky, ze které chcete vybírat data
     ```sql
     FROM TEROR
     ```
 - Použití klauzule `WHERE` k filtrování řádků podle určitých podmínek
-    ```sql
-    WHERE iyear >= 2000
-    ```
+  ```sql
+  WHERE iyear >= 2000
+  ```
 - Náš první "kompletní" dotaz, vybere tři sloupce z tabulky teror
     ```sql
     SELECT eventid, iyear, country_txt
@@ -103,6 +108,7 @@
     WHERE iyear >= 2000; -- jen udalosti od roku 2000
     ```
 ### Třídění výsledků: `ORDER BY`, `ASC`, `DESC`
+
 - Seřadímě si výsledky
     ```sql
     SELECT eventid, iyear, country_txt
@@ -125,6 +131,7 @@
     ORDER BY iyear DESC, imonth DESC;
     ```
 ### Omezení výsledků: `LIMIT`
+
 - Vybereme jen prvních 5 řádek
     ```sql
     SELECT eventid, iyear, country_txt
@@ -143,7 +150,9 @@
     ```
 
 ### Filtrování řádků pomocí klauzule `WHERE`
+
 #### Porovnávací operátory: `=`, `>`, `>=`, `<`, `<=`, `<>`, `BETWEEN`, `IN`, `LIKE`, `ILIKE`
+
 - Filtrujeme podle zemí
     ```sql
     SELECT eventid, iyear, country_txt
@@ -185,6 +194,7 @@
     LIMIT 5;
     ```
 ### Logické operátory: `AND`, `OR`, `NOT`
+
 - Kombinujeme filtry/podmínky ...
     ```sql
     SELECT eventid, iyear, country_txt
