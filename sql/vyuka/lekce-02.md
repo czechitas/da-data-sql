@@ -1,4 +1,4 @@
-## Lekce 1
+## Lekce 2
 
 ## Data, databáze, Snowflake, tabulky, dotazy
 
@@ -43,6 +43,8 @@
   SELECT *
   FROM TEROR;
   ```
+::fig[První dotaz]{src=assets/Lesson01-01.png}
+
 - Použití příkazu `SELECT` k výběru sloupců, které chcete zobrazit ve výsledcích
   ```sql
   SELECT eventid, iyear, country_txt

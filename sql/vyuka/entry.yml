@@ -1,5 +1,10 @@
 title: Výuka
 lead: Masíčko, tady už končí zábavné počteníčko a začíná zákopová válka se středníky, uvozovkami, čárkami. SELECT, FROM, WHERE, LEFT(), INNER JOIN, WITH, ROW_NUMBER() OVER (ORDER BY PARTITION BY) atd.
 sections:
-  - prvni-dotazy
-  - cviceni
+  - blbnicek
+  - lekce-01
+  - cviceni-01
+  - lekce-02
+  - cviceni-02
+  - lekce-03
+  - cviceni-03
