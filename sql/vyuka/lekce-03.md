@@ -39,11 +39,13 @@
 ### Získávání dat z jedné tabulky: `SELECT`, `FROM`, `WHERE`
 
 - Nejjednodušší kód, který pracuje s tabulkou
+
   ```sql
   SELECT *
   FROM TEROR;
   ```
-::fig[První dotaz]{src=assets/Lesson01-01.png}
+
+  ::fig[První dotaz]{src=assets/Lesson01-01.png}
 
 - Použití příkazu `SELECT` k výběru sloupců, které chcete zobrazit ve výsledcích
   ```sql
