@@ -6,22 +6,22 @@
 - Připojení k databázi Snowflake a spouštění dotazů
   - Nastavení účtu Snowflake a přístup k webovému rozhraní
   - Spouštění dotazů a zobrazování výsledků ve webovém rozhraní
-- Představení databáze COURSES ve Snowflake a její struktury
+- Představení databáze `COURSES` ve Snowflake a její struktury
   - Schémata, role
   - Global Terrorism Database a její účel
   - Popis tabulky teror
 
 ## Základní syntaxe příkazu `SELECT`
 
-### `SELECT ... FROM ... WHERE ... ORDER BY ... LIMIT ...;`
+#### `SELECT ... FROM ... WHERE ... ORDER BY ... LIMIT ...;`
 
-- Získávání dat z jedné tabulky: SELECT, FROM, WHERE
-- Výběr konkrétních sloupců: seznam názvů sloupců, zástupný znak (\*), exclude
-- Třídění výsledků: ORDER BY, ASC, DESC
-- Omezení výsledků: LIMIT
-- Filtrování řádků pomocí klauzule WHERE
-  - Porovnávací operátory: =, >, >=, <, <=, <>, BETWEEN, IN, LIKE, IS NULL
-  - Logické operátory: AND, OR, NOT
+- Získávání dat z jedné tabulky: `SELECT`, `FROM`, `WHERE`
+- Výběr konkrétních sloupců: seznam názvů sloupců, zástupný znak (\*), `EXCLUDE`
+- Třídění výsledků: `ORDER BY`, `ASC`, `DESC`
+- Omezení výsledků: `LIMIT`
+- Filtrování řádků pomocí klauzule `WHERE`
+  - Porovnávací operátory: `=`, `>`, `>=`, `<`, `<=`, `<>`, `BETWEEN`, `IN`, `LIKE`, `IS NULL`
+  - Logické operátory: `AND`, `OR`, `NOT`
 
 ## Jdeme na to!
 
@@ -59,9 +59,9 @@
   ```sql
   SELECT *
   ```
-- Pokud chceme skoro všechny sloupečky, můžeme se nechtěných zbavit klauzulí exclude (snowflake, bigquery, teradata ...)
+- Pokud chceme skoro všechny sloupečky, můžeme se nechtěných zbavit klauzulí `EXCLUDE` (snowflake, bigquery, teradata ...)
   ```sql
-  SELECT * EXCLUDE (eventid, eventdatde)
+  SELECT * EXCLUDE (eventid, eventdade)
   ```
 - Použití klauzule `FROM` k určení tabulky, ze které chcete vybírat data
   ```sql
@@ -113,7 +113,7 @@
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
-  WHERE iyear >= 2000; -- jen udalosti od roku 2000
+  WHERE iyear >= 2019; -- jen udalosti od roku 2000
   ```
 
 ### Třídění výsledků: `ORDER BY`, `ASC`, `DESC`
@@ -122,21 +122,18 @@
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
-  WHERE iyear >= 2000
   ORDER BY eventid;
   ```
 - Seřadímě si výsledky opačně
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
-  WHERE iyear >= 2000
   ORDER BY eventid DESC;
   ```
 - Seřadímě si výsledky podle více sloupců
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
-  WHERE iyear >= 2000
   ORDER BY iyear DESC, imonth DESC;
   ```
 
@@ -146,7 +143,6 @@
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
-  WHERE iyear >= 2000
   ORDER BY iyear DESC, imonth DESC
   LIMIT 5;
   ```
@@ -154,7 +150,6 @@
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
-  WHERE iyear >= 2000
   ORDER BY iyear DESC, imonth DESC
   LIMIT 5000;
   ```
@@ -199,21 +194,27 @@
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
-  WHERE iyear BETWEEN 2000 AND 2015
+  WHERE iyear BETWEEN 2018 AND 2019
   ORDER BY iyear DESC, imonth DESC
   LIMIT 5;
   ```
 
 ### Logické operátory: `AND`, `OR`, `NOT`
 
+- `AND` znamená, že obě spojené podmínky musí platit zároveň `country_txt = 'Germany' AND weaptype1_txt ='Fake weapons'` vybere jen útoky fake zbraněmi v Německu
+- `OR` znamená, že aspoň jedna ze spojených podmínek musí platit `country_txt = 'Germany' AND weaptype1_txt ='Fake weapons'` vybere všechny útoky fake zbraněmi a všechny útoky v Německu
+- `NOT` podmínku logicky obrátí, `NOT iyear>2023` vybere všechny útoky roky menší nebo rovné 2013
+
 - Kombinujeme filtry/podmínky ...
+
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
-  WHERE iyear BETWEEN 2000 AND 2015 AND country_txt ilike 'A%'
+  WHERE iyear BETWEEN 2018 AND 2019 AND country_txt ilike 'A%'
   ORDER BY iyear DESC, imonth DESC
   LIMIT 5;
   ```
+
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
@@ -221,6 +222,7 @@
   ORDER BY iyear DESC, imonth DESC
   LIMIT 5;
   ```
+
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
@@ -228,7 +230,9 @@
   ORDER BY iyear DESC, imonth DESC
   LIMIT 5;
   ```
+
 - Negujeme podmínky
+
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
@@ -236,11 +240,69 @@
   ORDER BY iyear DESC, imonth DESC
   LIMIT 5;
   ```
+
 - Bacha na závorky
+
   ```sql
   SELECT eventid, iyear, country_txt
   FROM TEROR
   WHERE NOT (country_txt ilike 'A%' OR country_txt = 'Germany')
   ORDER BY iyear DESC, imonth DESC
   LIMIT 5;
+  ```
+
+### Unikátní hodnoty `DISTINCT`
+
+Použitím operátoru `DISTINCT` získáme unikátní hodnoty z celého dotazu.
+
+- seznam měst v tabulce
+
+  ```sql
+    SELECT DISTINCT CITY
+    FROM TEROR;
+    -- vrátí seznam měst v tabulce
+  ```
+
+- seznam kanadských měst v tabulce
+
+  ```sql
+    SELECT DISTINCT CITY
+    FROM TEROR
+    WHERE COUNTRY_TXT = 'Canada';
+    -- vrátí seznam kanadských měst v tabulce
+  ```
+
+- sežazený seznam roků a měsíců, ve kterých v kanadě proběhl nějaký útok
+
+  ```sql
+    SELECT DISTINCT IYEAR, IMONTH
+    FROM TEROR
+    WHERE COUNTRY_TXT = 'Canada'
+    ORCER BY IYEAR, IMONTH;
+    -- vrátí sežazený seznam roků a měsíců, ve kterých v kanadě proběhl nějaký útok
+  ```
+
+### Počet řádek odpovídajících podmínce `COUNT(*)`
+
+- počet všech řádek v tabulce
+  ```sql
+    SELECT COUNT(1)
+    FROM TEROR;
+    -- vrátí počet všech řádek v tabulce
+  ```
+- počet útoků (řádek) v Kanadě
+  ```sql
+    SELECT COUNT(*)
+    FROM TEROR
+    WHERE COUNTRY_TXT = 'Canada';
+    -- vrátí počet útoků (řádek) v Kanadě
+  ```
+- počet útoků (řádek) v Kanadě v roce 2019
+
+  ```sql
+    SELECT COUNT(1)
+    FROM TEROR
+    WHERE COUNTRY_TXT = 'Canada' AND IYEAR = 2019
+    ORCER BY IYEAR, IMONTH;
+    -- vrátí počet útoků (řádek) v Kanadě v roce 2019
   ```

@@ -1,7 +1,8 @@
 title: Teorie
-lead: Teorii doporučuju přeskočit a jít rovnou na věc. A pravidlo, které platí všude, když něčemu nerozumíš, zkus to vygooglit, určitě to už někdo vysvětlil líp než já.
+lead: Teorii doporučuju přeskočit a jít rovnou na věc. I když... Jo a pravidlo, které platí všude, když něčemu nerozumíš, zkus to vygooglit, určitě to už někdo vysvětlil líp než já. Nebo se rovnou zeptat robota (OpenAI), je to skvělej učitel.
 sections:
   - proc
   - tetka
   - data
   - databaze
+  - databazovy-server
