@@ -306,3 +306,26 @@ Použitím operátoru `DISTINCT` získáme unikátní hodnoty z celého dotazu.
     ORCER BY IYEAR, IMONTH;
     -- vrátí počet útoků (řádek) v Kanadě v roce 2019
   ```
+
+### A teď se podíváme, co na to robot, jak by nás to učil?
+
+- vysvětlení základů docela trefí
+  ::fig[Základy s chatGPT]{src=assets/Lesson01-chatGPT-01.png}
+
+- vysvětlení konkrétní odrážky z lekce
+  ::fig[SELECT, FROM, WHERE]{src=assets/Lesson01-chatGPT-02.jpg}
+
+- a když nám to nestačí
+  ::fig[Složitější příklady]{src=assets/Lesson01-chatGPT-03.png}
+
+- a můžeme mu dát i větší kusy
+  ::fig[Složitější příklady]{src=assets/Lesson01-chatGPT-04.png}
+
+- nebo ho nechat shrnout celou lekci (screenshot je trochu zkrácený, lekce je celkem dlouhá)
+  ::fig[Shrnutí lekce]{src=assets/Lesson01-chatGPT-05.png}
+
+- Něco odpoví
+  ::fig[Shrnutí lekce]{src=assets/Lesson01-chatGPT-06a.png}
+
+- A když se nám to nelíbí, protě ho to necháme zkusit znova, napodruhé těžko říct, jestli lepší, ale jiná odpověď to určitě je
+  ::fig[Shrnutí lekce]{src=assets/Lesson01-chatGPT-06b.png}
