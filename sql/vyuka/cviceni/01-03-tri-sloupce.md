@@ -3,7 +3,7 @@ title: 3. Tři sloupce
 demand: 1
 ---
 
-Vypiš jen sloupce eventid, iyear, country_txt, region_txt
+Vypiš jen sloupce EVENTID, IYEAR, COUNTRY_TXT, REGION_TXT.
 ---solution
 
 - Abychom vybrali jen tři sloupce, musíme je vyjmenovat

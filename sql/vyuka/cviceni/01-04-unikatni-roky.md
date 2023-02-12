@@ -3,7 +3,7 @@ title: 4. Unikátní roky
 demand: 1
 ---
 
-Vypiš všechny roky vyskytující se v tabulce teror, tak aby byl každý rok ve výsledné tabulce jen jednou
+Vypiš všechny roky vyskytující se v tabulce teror, tak aby byl každý rok ve výsledné tabulce jen jednou.
 
 ---solution
 
