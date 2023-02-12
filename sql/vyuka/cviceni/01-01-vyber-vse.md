@@ -7,7 +7,7 @@ Vyber vše z tabulky teror.
 
 ---solution
 
-- Abychom vybrali všechny sloupce, můžeme použít buď hvězdičku. Všechny řádky vybereme tím, že nezadáme žádnou podmínku:
+- Všechny řádky vybereme tím, že nezadáme žádnou podmínku. Abychom vybrali všechny sloupce, můžeme použít hvězdičku.
 
   ```sql
   SELECT * FROM TEROR;
