@@ -5,6 +5,7 @@
 - [webový klient](https://app.snowflake.com/west-europe.azure/gn56074/w2EL1gR8YIYn)
 - hostname: `gn56074.west-europe.azure.snowflakecomputing.com`
 - login: CZECHITA_PRIJEMNIJ (ERVINA MODRA = CZECHITA_MODRAE)
+- Nemáš Czechita účet, nebo dokonce vůbec nejsi Czechita? 😱 Nevadí, stačí si založit account v [Keboola](https://connection.north-europe.azure.keboola.com/wizard) a stáhnout si [tabulku teror](https://docs.google.com/uc?export=download&id=1K60Ed4rZMDvm6CDMNHU_tIrCrMaN-3pc&confirm=true) pomocí http data source. Pak už stačí si založit snowflake workspace a dál je všechno stejné.
 
 ### Odkazy ke studiu
 
