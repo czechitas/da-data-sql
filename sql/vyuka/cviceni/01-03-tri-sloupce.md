@@ -12,7 +12,7 @@ Vypiš jen sloupce EVENTID, IYEAR, COUNTRY_TXT, REGION_TXT.
   SELECT eventid, iyear, country_txt, region_txt FROM teror;;
   ```
 
-- Masochistky můžou s chutí použít `EXCLUDE`
+- Masochistky můžou s chutí použít `EXCLUDE` 😱
 
   ```sql
   SELECT * EXCLUDE (IDATE, IMONTH, IDAY, APPROXDATE,
