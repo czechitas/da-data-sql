@@ -3,14 +3,17 @@ lead: Masíčko, tady už končí zábavné počteníčko a začíná zákopová
 sections:
   - blbnicek
   - lekce-01
-  - cviceni-01
   - lekce-02
-  - cviceni-02
   - lekce-03
-  - cviceni-03
   - lekce-04
-  - cviceni-04
   - lekce-05
-  - cviceni-05
   - lekce-06
   - cviceni-06
+  - cviceni-01
+  - cviceni-02
+  - cviceni-03
+  - cviceni-04
+  - cviceni-05
+  - cviceni-06
+
+  
