@@ -1,6 +1,4 @@
-## Lekce 2
-
-## Operátory a funkce
+## Lekce 2 - Operátory a funkce
 
 Operátory a funkce nám umožňují vytvářet sloupečky a filtrovat data podle určitého kritéria. Funkcí existuje mraky, v každé databázi najdeme minimálně ty základní. Ani operátory nebudou ve včech databázích stejné, ale teď se soustřeďme se na náš snowflake.
 

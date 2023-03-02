@@ -1,4 +1,4 @@
-## Lekce 1
+## Lekce 1 - Data, databáze, Snowflake, tabulky, dotazy
 
 ## Data, databáze, Snowflake, tabulky, dotazy
 

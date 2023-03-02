@@ -1,4 +1,4 @@
-## Lekce 3
+## Lekce 3 - Agregace dat, agregační funkce, `GROUP BY`
 
 ## Čemu se budeme věnovat?
 
