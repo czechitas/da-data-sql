@@ -7,18 +7,18 @@ Vypiš všechny roky vyskytující se v tabulce teror, tak aby byl každý rok v
 
 ---solution
 
-Abychom vybrali všechny sloupce, můžeme použít buď hvězdičku:
+Abychom vybrali pouze jeden sloupec, napíšeme jeho jméno:
 
-    ```sql
-    SELECT DISTINCT IYEAR FROM TEROR;
-    ```
+  ```sql
+    SELECT DISTINCT IYEAR 
+    FROM TEROR;
+  ```
 
 Anebo je všechny _zgroupovat_ podle IYEAR:
 
-    ```sql
+  ```sql
     SELECT IYEAR
-
     FROM TEROR
-
     GROUP BY IYEAR;
-    ```
+  ```
+Tato varianta bude fungovat, ale je zbytečně složitá a pokud se nedotazujete na nic složitějšího, tak nedoporučujeme. 😉
