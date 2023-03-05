@@ -7,6 +7,7 @@ Zobraz (náhodných) deset řádků z tabulky teror.
 
 ---solution
 
-    ```sql
-    SELECT * FROM teror LIMIT 10;
-    ```
+  ```sql
+    SELECT * FROM teror 
+    LIMIT 10;
+  ```
