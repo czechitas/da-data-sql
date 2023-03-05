@@ -1,15 +1,16 @@
 ---
-title: 3. Tři sloupce
+title: 3. Čtyři sloupce
 demand: 1
 ---
 
 Vypiš jen sloupce EVENTID, IYEAR, COUNTRY_TXT, REGION_TXT.
 ---solution
 
-- Abychom vybrali jen tři sloupce, musíme je vyjmenovat
+- Abychom vybrali jen čtyři sloupce, musíme je vyjmenovat
 
   ```sql
-  SELECT eventid, iyear, country_txt, region_txt FROM teror;;
+  SELECT EVENTID, IYEAR, COUNTRY_TXT, REGION_TXT
+  FROM TEROR;
   ```
 
 - Masochistky můžou s chutí použít `EXCLUDE` 😱
