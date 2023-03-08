@@ -203,7 +203,7 @@
 
 - `AND` znamená, že obě spojené podmínky musí platit zároveň `country_txt = 'Germany' AND weaptype1_txt ='Fake weapons'` vybere jen útoky fake zbraněmi v Německu
 - `OR` znamená, že aspoň jedna ze spojených podmínek musí platit `country_txt = 'Germany' AND weaptype1_txt ='Fake weapons'` vybere všechny útoky fake zbraněmi a všechny útoky v Německu
-- `NOT` podmínku logicky obrátí, `NOT iyear>2023` vybere všechny útoky roky menší nebo rovné 2013
+- `NOT` podmínku logicky obrátí, `NOT iyear > 2023` vybere všechny útoky roky menší nebo rovné 2023
 
 - Kombinujeme filtry/podmínky ...
 
