@@ -1,6 +1,6 @@
 ## Cvičení k lekci 1
 
-V úkolech budeme pracovat s tabulkou `TEROR` we chématu `SCH_TEROR`.
+V úkolech budeme pracovat s tabulkou `TEROR` ve schématu `SCH_TEROR`.
 
 - Tabulka obsahuje následující sloupečky:
 
