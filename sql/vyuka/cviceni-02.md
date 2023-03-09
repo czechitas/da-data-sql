@@ -1,3 +1,4 @@
 ## Cvičení k lekci 2
 
-Ano, v úkolech budeme pracovat.
+V úkolech budeme pracovat s tabulkou `TEROR` ve schématu `SCH_TEROR`.
+
