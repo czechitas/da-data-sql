@@ -1,6 +1,6 @@
 ## Cvičení k lekci 3
 
-V úkolech budeme pracovat
+V úkolech budeme pracovat s tabulkou `TEROR` ve schématu `SCH_TEROR`.
 
 ::exc[cviceni>03-01]
 ::exc[cviceni>03-02]
