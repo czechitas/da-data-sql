@@ -1,4 +1,4 @@
-## Cvičení k lekci 6
+## Cvičení k lekci 7
 
 Vnořené dotazy a CTE
 
