@@ -1,4 +1,4 @@
-## Lekce 7 - UNION a WINDOW fuknce
+## Lekce 7 - UNION a WINDOW funkce
 
 ## `UNION`, `UNION ALL`
 
