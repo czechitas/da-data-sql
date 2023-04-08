@@ -123,6 +123,7 @@ Další Window funkce zahrnují `SUM`, `AVG` nebo `COUNT`, které se používaj�
 
 Kompletní seznam Window funkcí ve Snowflaku můžete najít tady: https://docs.snowflake.com/en/sql-reference/functions-analytic
 
+
 ##### Základní syntaxe
 
 ```sql
@@ -135,6 +136,22 @@ Kompletní seznam Window funkcí ve Snowflaku můžete najít tady: https://docs
 `ORDER BY` řadí řádky v rámci okna. To se liší od řazení výstupu dotazu. Dotaz může mít jednu klauzuli ORDER BY, která ovládá pořadí řádků v rámci okna, a samostatnou klauzuli ORDER BY mimo klauzuli OVER, která ovládá pořadí výstupu celého dotazu.
 **I když je klauzule ORDER BY volitelná pro některé Window funkce, je pro jiné povinná.** Vždy se tedy podívejte do dokumentace, pokud funkci ještě neznáte. 😉
 
+### QUALIFY
+
+Při používání Window funkcí nám ještě může pomoct klauzule `QUALIFY`, která umožňuje filtrovat výsledky Window funkcí. QUALIFY s Window funkcemi to, co HAVING dělá s GROUP BY (a agragačními funkcemi). Při zprocesování dotazu v databázi je QUALIFY vyhodnocována až poté, co jsou vyhodnoceny/vypočítány Window funkce. Pořadí vyhodnocení SELECTU je následující:
+
+1. `FROM` + `JOIN`
+2. `WHERE`
+3. `GROUP BY`
+4. `HAVING`
+5. Window funkce
+6. `QUALIFY`
+7. `DISTINCT`
+8. `ORDER BY`
+9. `LIMIT`
+
+❗ Nutno zmínit, že ne všechny databáze podporují klauzuli QUALIFY. Jedná se o rozšíření SQL, které podporují pouze některé databáze jako např. Snowflake nebo Teradata. V jiných databázích, jako je PostgreSQL, MySQL nebo MS SQL, je třeba použít poddotaz nebo CTE k dosažení podobné funkcionality. ❗
+
 ##### Co je důležité - shrnutí
 
 Tři hlavní klíčová slova pro vytvoření Window funkce jsou:
@@ -142,6 +159,8 @@ Tři hlavní klíčová slova pro vytvoření Window funkce jsou:
 - **OVER** - indikuje začátek Window funkce, definuje okno (společně s `PARTITION BY`)
 - **PARTITION BY** - volitelné, umožňuje seskupovat řádky do podskupin.
 - **ORDER BY** - určuje řazení řádků v okně.
+
+- pro filtrování výsledku Window funkcí můžeme použít `QUALIFY` (v jiných databázích si ověřte v dokumentaci)
 
 ##### Příklady použití Window funkcí
 
@@ -182,3 +201,19 @@ Chceme seřadit organizace podle počtu obětí sestupně a přiřadit jim pořa
  ) 
  WHERE rank <= 3;
 ```
+
+A ještě si ukážeme, jak vyřešit stejné zadání, ale bez subselectu - budeme tedy přímo filtrovat pomocí `QUALIFY`.
+
+ ```sql
+SELECT 
+      GNAME
+      ,IYEAR
+      ,SUM(NKILL) AS pocet_mrtvych
+      ,RANK() OVER (PARTITION BY IYEAR
+                    ORDER BY SUM(NKILL) DESC) AS rank
+FROM TEROR
+WHERE NKILL IS NOT NULL
+GROUP BY GNAME,IYEAR
+QUALIFY rank <= 3
+ORDER BY rank, IYEAR DESC;
+ ```
