@@ -1,4 +1,4 @@
-# Datové kurzy [![quality assurance](https://github.com/Czechitas-podklady-WEB/data-vyuka/actions/workflows/quality-assurance.yml/badge.svg)](https://github.com/Czechitas-podklady-WEB/data-vyuka/actions)
+# Datové kurzy [![quality assurance](https://github.com/czechitas/da-data-sql/actions/workflows/quality-assurance.yml/badge.svg)](https://github.com/czechitas/da-data-sql/actions)
 
 Studijní materiály pro data na kodim.cz
 
