@@ -1,7 +1,7 @@
 version: "3"
 services:
   kodim:
-    image: onset/kodimcz:0.0.2
+    image: onset/kodimcz:1.5.17
     restart: always
     ports:
       - "3000:3000"
