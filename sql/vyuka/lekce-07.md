@@ -138,7 +138,7 @@ Kompletní seznam Window funkcí ve Snowflaku můžete najít tady: https://docs
 
 ### QUALIFY
 
-Při používání Window funkcí nám ještě může pomoct klauzule `QUALIFY`, která umožňuje filtrovat výsledky Window funkcí. QUALIFY s Window funkcemi to, co HAVING dělá s GROUP BY (a agragačními funkcemi). Při zprocesování dotazu v databázi je QUALIFY vyhodnocována až poté, co jsou vyhodnoceny/vypočítány Window funkce. Pořadí vyhodnocení SELECTU je následující:
+Při používání Window funkcí nám ještě může pomoct klauzule `QUALIFY`, která umožňuje filtrovat výsledky Window funkcí. QUALIFY dělá s Window funkcemi to, co HAVING dělá s GROUP BY (a agregačními funkcemi). Při zprocesování dotazu v databázi je QUALIFY vyhodnocována až poté, co jsou vyhodnoceny/vypočítány Window funkce. Pořadí vyhodnocení SELECTU je následující:
 
 1. `FROM` + `JOIN`
 2. `WHERE`
@@ -149,6 +149,8 @@ Při používání Window funkcí nám ještě může pomoct klauzule `QUALIFY`,
 7. `DISTINCT`
 8. `ORDER BY`
 9. `LIMIT`
+
+TIP! Pomocí Window funkcí a QUALIFY se dají i čistit data. 😉
 
 ❗ Nutno zmínit, že ne všechny databáze podporují klauzuli QUALIFY. Jedná se o rozšíření SQL, které podporují pouze některé databáze jako např. Snowflake nebo Teradata. V jiných databázích, jako je PostgreSQL, MySQL nebo MS SQL, je třeba použít poddotaz nebo CTE k dosažení podobné funkcionality. ❗
 
