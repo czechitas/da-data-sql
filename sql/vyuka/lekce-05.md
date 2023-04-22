@@ -16,7 +16,7 @@ Příkaz [`INSERT`](https://docs.snowflake.com/en/sql-reference/sql/insert) a `I
 
 Souhrnně lze říci, že zatímco SELECT slouží k dotazování a načítání dat z tabulky, ostatní příkazy slouží k úpravě nebo odstranění dat z tabulky, případně k vytvoření nebo úplnému odstranění tabulek.
 
-Školometsky se příkazy dělí na `DML` a `DDL` Data Definition Language (`CREATE`, `ALTER`, `DROP`) a Data Manipulation Language (`SELECT`, `INSERT`, `UPDATE`, `DELETE`).
+Školometsky se příkazy dělí na `DML` a `DDL` Data Definition Language (`CREATE`, `ALTER`, `DROP`,`TRUNCATE`) a Data Manipulation Language (`INSERT`, `UPDATE`, `DELETE`). `SELECT` patří do skupiny DQL – Data Query Language.
 
 #### Odkazy na soubory ke stažení
 
@@ -38,7 +38,7 @@ Tyhle soubory budou potřeba, až budeme importovat data.
 
 #### Vytvoření naší první tabulky
 
-- Let`s go
+- Let's go
 
   ```sql
   CREATE TABLE NEW_TEROR (
@@ -138,7 +138,7 @@ Tyhle soubory budou potřeba, až budeme importovat data.
     ('Nějácí další teroristi', 155, 5);
   ```
 
-- Chceme si tabulku naplnit napevno nějakými daty? Brnkačka. Občas některé databáze dělají export dat právě v tomto formátu, jako dlouhatánskou nudli insert into a hodnot. Pak se celý ten skript vezme a spustí a voila, data jsou uvnitř. Není to nejlepší způsob, ale jde tp.
+- Chceme si tabulku naplnit napevno nějakými daty? Brnkačka. Občas některé databáze dělají export dat právě v tomto formátu, jako dlouhatánskou nudli insert into a hodnot. Pak se celý ten skript vezme a spustí a voila, data jsou uvnitř. Není to nejlepší způsob, ale jde to.
 
   ```sql
   UPDATE NEW_TEROR
@@ -221,9 +221,9 @@ Tyhle soubory budou potřeba, až budeme importovat data.
 
 #### Import dat "přímo" do Snowflake
 
-Dobrá rada nad zlato, pokud můžeš, použij na import dat do databáze nějaký nástroj. Já samozřejmě doporučuju Keboolu ale existují další - Fivetran, Matilion, Azure data factory, Talend, Informatica. Je jich milión. Ale Snowflake umí naimportovat data i napřímo.
+Dobrá rada nad zlato, pokud můžeš, použij na import dat do databáze nějaký nástroj. Já samozřejmě doporučuju Keboolu, ale existují další - Fivetran, Matillion, Azure data factory, Talend, Informatica. Je jich milión. Ale Snowflake umí naimportovat data i napřímo.
 
-- Vytvoříme si tabulku, do které budeme importovat, bez toho to nepůjde. Ptáte se, jak máte znát její strukturu? dobrá otázka. Proto jsem doporučoval tooly, ale drsňáci strukturu tabulky znají. Takhle vypadá tabulka v souboru [data.csv](assets/data.csv):
+- Vytvoříme si tabulku, do které budeme importovat, bez toho to nepůjde. Ptáte se, jak máte znát její strukturu? Dobrá otázka. Proto jsem doporučoval tooly, ale drsňáci strukturu tabulky znají. Takhle vypadá tabulka v souboru [data.csv](assets/data.csv):
 
   ```sql
   CREATE TABLE gibberish
