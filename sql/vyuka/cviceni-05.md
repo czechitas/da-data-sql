@@ -21,8 +21,8 @@ Pokud nevíte, jak naimportovat data, nebo jste se na tom zasekli, tak [tady je 
 
 **Nedoporučujeme** se na to vykašlat a jet rovnou podle návodu, z toho si odnesete velmi málo. 😉
 
-::exc[cviceni>05-01]
-::exc[cviceni>05-02]
-::exc[cviceni>05-03]
-::exc[cviceni>05-04]
-::exc[cviceni>05-05]
+::exc[cviceni/05-01]
+::exc[cviceni/05-02]
+::exc[cviceni/05-03]
+::exc[cviceni/05-04]
+::exc[cviceni/05-05]

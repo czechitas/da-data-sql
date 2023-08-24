@@ -5,7 +5,7 @@ demand: 1
 
 Vyber vše z tabulky teror.
 
----solution
+:::solution
 
 - Všechny řádky vybereme tím, že nezadáme žádnou podmínku. Abychom vybrali všechny sloupce, můžeme použít hvězdičku.
 
@@ -81,3 +81,5 @@ Vyber vše z tabulky teror.
   FROM TEROR
   WHERE 1 = 1;
   ```
+
+:::

@@ -5,7 +5,7 @@ demand: 1
 
 Vypiš všechny roky vyskytující se v tabulce teror, tak aby byl každý rok ve výsledné tabulce jen jednou.
 
----solution
+:::solution
 
 Abychom vybrali pouze jeden sloupec, napíšeme jeho jméno:
 
@@ -23,3 +23,5 @@ Anebo je všechny _zgroupovat_ podle IYEAR:
 ```
 
 Tato varianta bude fungovat, ale je zbytečně složitá a pokud se nedotazujete na nic složitějšího, tak nedoporučujeme. 😉
+
+:::

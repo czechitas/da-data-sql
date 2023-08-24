@@ -4,7 +4,7 @@ demand: 1
 ---
 
 Vypiš jen sloupce EVENTID, IYEAR, COUNTRY_TXT, REGION_TXT.
----solution
+:::solution
 
 - Abychom vybrali jen čtyři sloupce, musíme je vyjmenovat
 
@@ -46,3 +46,5 @@ Vypiš jen sloupce EVENTID, IYEAR, COUNTRY_TXT, REGION_TXT.
 
   FROM TEROR;
   ```
+
+:::
