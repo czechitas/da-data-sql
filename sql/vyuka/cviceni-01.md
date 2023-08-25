@@ -29,12 +29,12 @@ V úkolech budeme pracovat s tabulkou `TEROR` ve schématu `SCH_TEROR`.
   INT_MISC, INT_ANY, RELATED
   ```
 
-::exc[cviceni>01-01-vyber-vse]
-::exc[cviceni>01-02-deset-radku]
-::exc[cviceni>01-03-tri-sloupce]
-::exc[cviceni>01-04-unikatni-roky]
-::exc[cviceni>01-05-2016]
-::exc[cviceni>01-06]
-::exc[cviceni>01-07]
-::exc[cviceni>01-08]
-::exc[cviceni>01-09]
+::exc[cviceni/01-01-vyber-vse]
+::exc[cviceni/01-02-deset-radku]
+::exc[cviceni/01-03-tri-sloupce]
+::exc[cviceni/01-04-unikatni-roky]
+::exc[cviceni/01-05-2016]
+::exc[cviceni/01-06]
+::exc[cviceni/01-07]
+::exc[cviceni/01-08]
+::exc[cviceni/01-09]
