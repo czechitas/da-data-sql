@@ -20,52 +20,52 @@ Použití `UNION` a `UNION ALL` závisí na konkrétní situaci. Pokud chcete sl
 
 ##### Základní syntaxe
 
-  ```sql
-    SELECT weaptype1 
-    FROM TEROR2
- 
-    UNION
+```sql
+  SELECT weaptype1
+  FROM TEROR2
 
-    SELECT weaptype2
-    FROM TEROR2
-    ;
-  ```
+  UNION
 
-  Budeme například chtít seznam všech unikátních weaptypes, které byly použity při útocích. Zároveň si řekneme, že nechceme vidět jen id, ale chce vidět názvy. 
-  Víme, že názvy weaptype jsou uloženy v tabulce `WEAPTYPE` a v tabulce `TEROR2` se weaptype vyskytuje ve třech sloupečcích, a proto použijeme `UNION`:
+  SELECT weaptype2
+  FROM TEROR2
+  ;
+```
 
-  ```sql
-    SELECT w.NAME 
-    FROM TEROR2 AS t
-    JOIN WEAPTYPE AS w
-    ON t.WEAPTYPE1 = w.ID
+Budeme například chtít seznam všech unikátních weaptypes, které byly použity při útocích. Zároveň si řekneme, že nechceme vidět jen id, ale chce vidět názvy.
+Víme, že názvy weaptype jsou uloženy v tabulce `WEAPTYPE` a v tabulce `TEROR2` se weaptype vyskytuje ve třech sloupečcích, a proto použijeme `UNION`:
 
-    UNION --> maže duplicity
+```sql
+  SELECT w.NAME
+  FROM TEROR2 AS t
+  JOIN WEAPTYPE AS w
+  ON t.WEAPTYPE1 = w.ID
 
-    SELECT w.NAME
-    FROM TEROR2 AS t
-    JOIN WEAPTYPE AS w
-    ON t.WEAPTYPE2 = w.ID
+  UNION --> maže duplicity
 
-    UNION --> maže duplicity
+  SELECT w.NAME
+  FROM TEROR2 AS t
+  JOIN WEAPTYPE AS w
+  ON t.WEAPTYPE2 = w.ID
 
-    SELECT w.NAME
-    FROM TEROR2 AS t
-    JOIN WEAPTYPE AS w
-    ON t.WEAPTYPE3 = w.ID
-    ;
-  ```
+  UNION --> maže duplicity
+
+  SELECT w.NAME
+  FROM TEROR2 AS t
+  JOIN WEAPTYPE AS w
+  ON t.WEAPTYPE3 = w.ID
+  ;
+```
 
 Dále nás například zajímá, jakým typem zbraně byl proveden útok, kolik to zasáhlo lidí a s jakým výsledkem (ranění, rukojmí, mrtví). Zároveň si vytvoříme sloupec `TYP_ZBRANE`, který nám bude říkat, o který typ zbraně šlo (weaptype1, 2 nebo 3)
 
 ```sql
- SELECT 
+ SELECT
    w.NAME
   ,'WEAPTYPE1' AS typ_zbrane
   ,SUM(NKILL) AS mrtvi
-  ,SUM(CASE WHEN NHOSTKID = -99 THEN NULL ELSE NHOSTKID END) AS rukojmi 
+  ,SUM(CASE WHEN NHOSTKID = -99 THEN NULL ELSE NHOSTKID END) AS rukojmi
   -- nebo SUM(IFF(nhostkid=-99,NULL,NHOSTKID)) AS rukojmi
-  ,SUM(NWOUND) AS raneni 
+  ,SUM(NWOUND) AS raneni
  FROM TEROR2 AS t
  JOIN WEAPTYPE AS w
  ON t.WEAPTYPE1 = w.ID
@@ -73,7 +73,7 @@ Dále nás například zajímá, jakým typem zbraně byl proveden útok, kolik 
 
  UNION ALL
 
- SELECT 
+ SELECT
    w.NAME
   ,'WEAPTYPE2'
   ,SUM(NKILL) AS mrtvi
@@ -86,7 +86,7 @@ Dále nás například zajímá, jakým typem zbraně byl proveden útok, kolik 
 
  UNION ALL
 
-  SELECT 
+  SELECT
    w.NAME
   ,'WEAPTYPE3'
   ,SUM(NKILL) AS mrtvi
@@ -104,31 +104,29 @@ Dále nás například zajímá, jakým typem zbraně byl proveden útok, kolik 
 
 #### Čemu se budeme věnovat?
 
-Window funkce (můžete se setkat i s názvem analytické funkce) slouží k vytvoření nového sloupce výpočty prováděnými na určité podmnožině dat. 
+Window funkce (můžete se setkat i s názvem analytické funkce) slouží k vytvoření nového sloupce výpočty prováděnými na určité podmnožině dat.
 Můžete tedy provádět výpočty nad vaším výběrem dat, aniž byste museli tuto část dat oddělit do samostatné tabulky nebo ji seskupit (pomocí GROUP BY).
 
-Window funkce pracují nad záznamy vaší tabulky a umožňují vám definovat tzv. **"okna"** - tedy části dat, nad kterými chcete provést výpočet. 
+Window funkce pracují nad záznamy vaší tabulky a umožňují vám definovat tzv. **"okna"** - tedy části dat, nad kterými chcete provést výpočet.
 Klauzule `OVER` a `PARTITION BY` společně definují to, co se nazývá jako "okno". Okno se dá dále omezit různými způsoby, například pomocí `ROWS BETWEEN` nebo `RANGE BETWEEN`, což určí, kolik řádků od aktuálního řádku se má do výpočtu zahrnout. To už jsme ale v pokročilejším použití.
 
-
-Některé z nejčastěji používaných Window funkcí zahrnují `ROW_NUMBER`, `RANK` a `DENSE_RANK`, které se používají k přiřazení číselné hodnoty jednotlivým řádkům, na základě určitého řazení (tzv. *Rank-related functions*). 
+Některé z nejčastěji používaných Window funkcí zahrnují `ROW_NUMBER`, `RANK` a `DENSE_RANK`, které se používají k přiřazení číselné hodnoty jednotlivým řádkům, na základě určitého řazení (tzv. _Rank-related functions_).
 
 A co tyhle tři vybrané funkce dělají?
 
-*`ROW_NUMBER` - vrací unikátní číslo pro každý řádek v definované podskupině, čísluje od 1
-*`RANK` - vrací pořadí (číslo) hodnoty v definované podskupině, čísluje od 1 a pokud jsou hodnoty stejné, mají stejné pořadí - následující číslo v pořadí se ale v tomto případě přeskočí
-*`DENSE_RANK` - vrací pořadí (číslo) hodnoty v definované podskupině, čísluje od 1 a pokud jsou hodnoty stejné, mají stejné pořadí - následující číslo v pořadí se v tomto případě nepřeskakuje
+_`ROW_NUMBER` - vrací unikátní číslo pro každý řádek v definované podskupině, čísluje od 1
+_`RANK` - vrací pořadí (číslo) hodnoty v definované podskupině, čísluje od 1 a pokud jsou hodnoty stejné, mají stejné pořadí - následující číslo v pořadí se ale v tomto případě přeskočí \*`DENSE_RANK` - vrací pořadí (číslo) hodnoty v definované podskupině, čísluje od 1 a pokud jsou hodnoty stejné, mají stejné pořadí - následující číslo v pořadí se v tomto případě nepřeskakuje
 
-Další Window funkce zahrnují `SUM`, `AVG` nebo `COUNT`, které se používají k výpočtu agregovaných hodnot nad daným oknem (tzv. *Window frame functions*).
+Další Window funkce zahrnují `SUM`, `AVG` nebo `COUNT`, které se používají k výpočtu agregovaných hodnot nad daným oknem (tzv. _Window frame functions_).
 
 Kompletní seznam Window funkcí ve Snowflaku můžete najít tady: https://docs.snowflake.com/en/sql-reference/functions-analytic
-
 
 ##### Základní syntaxe
 
 ```sql
  <function> ( [ <arguments> ] ) OVER ( [ PARTITION BY <expr1> ] [ ORDER BY <expr2> ] )
 ```
+
 `OVER` indikuje začátek window funkce, což způsobí, že výsledky agregace budou přidány jako sloupec do výstupní tabulky bez vyžadování agregace pomocí GROUP BY.
 
 `PARTITION BY` definuje, pokud existuje, dělení na podskupiny pro okno, tj. jak budou data seskupena před aplikací funkce (například podle města, roku apod.). Podklauzule PARTITION BY je volitelná. Lze analyzovat celou skupinu řádků, aniž bychom ji rozdělili na podskupiny.
@@ -177,45 +175,45 @@ Chceme seřadit organizace podle počtu obětí sestupně a přiřadit jim pořa
  ORDER BY SUM(NKILL) DESC;
 ```
 
-
 Chceme seřadit organizace podle počtu obětí sestupně a přiřadit jim pořadí (rank) v rámci roku.
 
- ```sql
- SELECT GNAME, IYEAR, SUM(NKILL) AS pocet_mrtvych
- ,ROW_NUMBER() OVER (ORDER BY SUM(NKILL) DESC) AS rn
- ,RANK() OVER (PARTITION BY IYEAR ORDER BY SUM(NKILL) DESC) AS rank
- FROM TEROR
- WHERE NKILL IS NOT NULL
- GROUP BY GNAME, IYEAR
- ORDER BY SUM(NKILL) DESC;
+```sql
+SELECT GNAME, IYEAR, SUM(NKILL) AS pocet_mrtvych
+,ROW_NUMBER() OVER (ORDER BY SUM(NKILL) DESC) AS rn
+,RANK() OVER (PARTITION BY IYEAR ORDER BY SUM(NKILL) DESC) AS rank
+FROM TEROR
+WHERE NKILL IS NOT NULL
+GROUP BY GNAME, IYEAR
+ORDER BY SUM(NKILL) DESC;
 ```
 
 Chceme seřadit organizace podle počtu obětí sestupně a přiřadit jim pořadí (rank) v rámci roku. Nakonec chceme vybrat jen první tři z každého roku.
- ```sql
- SELECT * FROM
- (SELECT GNAME, IYEAR, SUM(NKILL) AS pocet_mrtvych
- ,ROW_NUMBER() OVER (ORDER BY SUM(NKILL) DESC) AS rn
- ,RANK() OVER (PARTITION BY IYEAR ORDER BY SUM(NKILL) DESC) AS rank
- FROM TEROR
- WHERE NKILL IS NOT NULL
- GROUP BY GNAME, IYEAR
- ORDER BY rank, IYEAR DESC
- ) 
- WHERE rank <= 3;
+
+```sql
+SELECT * FROM
+(SELECT GNAME, IYEAR, SUM(NKILL) AS pocet_mrtvych
+,ROW_NUMBER() OVER (ORDER BY SUM(NKILL) DESC) AS rn
+,RANK() OVER (PARTITION BY IYEAR ORDER BY SUM(NKILL) DESC) AS rank
+FROM TEROR
+WHERE NKILL IS NOT NULL
+GROUP BY GNAME, IYEAR
+ORDER BY rank, IYEAR DESC
+)
+WHERE rank <= 3;
 ```
 
 A ještě si ukážeme, jak vyřešit stejné zadání, ale bez subselectu - budeme tedy přímo filtrovat pomocí `QUALIFY`.
 
- ```sql
-SELECT 
-      GNAME
-      ,IYEAR
-      ,SUM(NKILL) AS pocet_mrtvych
-      ,RANK() OVER (PARTITION BY IYEAR
-                    ORDER BY SUM(NKILL) DESC) AS rank
+```sql
+SELECT
+     GNAME
+     ,IYEAR
+     ,SUM(NKILL) AS pocet_mrtvych
+     ,RANK() OVER (PARTITION BY IYEAR
+                   ORDER BY SUM(NKILL) DESC) AS rank
 FROM TEROR
 WHERE NKILL IS NOT NULL
 GROUP BY GNAME,IYEAR
 QUALIFY rank <= 3
 ORDER BY rank, IYEAR DESC;
- ```
+```
